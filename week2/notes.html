@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week 2 Notes</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@423&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="navigation">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+        <h1>Notes Week 2</h1>
+    </header>
+    <main>
+        <p>
+            Functions are procedures or routines that perform certain tasks. You get to decide what it is they do and
+            how they do it. I have had some trouble understanding the other syntaxes to create functions is Javascript
+            so I will try and explain them here. Below are three sepereate ways of how to create the same functions.
+        </p>
+        <p>
+            function add() {
+            let number1 = document.getElementById('number1').value;
+            let number2 = document.getElementById('number2').value;
+
+            document.getElementById('plus').innerHTML = Number(number1) + Number(number2);
+            }
+            <br>
+            <br>
+            const add = funtion addNumbers() {
+            let number1 = document.getElementById('number1').value;
+            let number2 = document.getElementById('number2').value;
+
+            document.getElementById('plus').innerHTML = Number(number1) + Number(number2);
+            }
+        </p>
+        <p>
+            Something I found very interesting was the use of methods. Methods are functions that are built in to
+            Javascript. Therefore, you do not need to code them, instead, you just call them. I have used many before
+            life console.log and Math.pow but was unaware of the many that there are. Below I will include some that
+            can be used to manipulate and change arrays. the .push method can add something to the end of and array
+            while the .pop method returns and and removes the last value in the array referenced.
+        </p>
+        <h3>Team Activity</h3>
+        <input type="number" name="" id="number" required>
+        <input type="button" value="Calculate total" id="button_here">
+        <br>
+        <input type="number" name="" id="number2" required>
+        <input type="button" value="+" id="plus">
+        <div id="numbers"></div>
+    <script>
+        document.getElementById("button_here").addEventListener('click', () => {
+            let number = document.getElementById("number").value;
+            if (number) {
+                let numbers = number.split('');
+                let total = 0;
+                numbers.forEach(e => {
+                    total += parseInt(e); // convert string to integer
+                });
+                document.getElementById('numbers').innerHTML = total;
+            }
+        });
+        document.getElementById("plus").addEventListener('click', () => {
+            let number = document.getElementById("number").value + document.getElementById("number2").value;
+            if (number) {
+                let numbers = number.split('');
+                let total = 0;
+                numbers.forEach(e => {
+                    total += parseInt(e); // convert string to integer
+                });
+                document.getElementById('numbers').innerHTML = total;
+            }
+        }); 
+    </script>
+        <p>
+            let sequence = [1, 2, 3];
+            sequence.push(4);
+            sequence.push(5);
+            console.log(sequence);
+            // → [1, 2, 3, 4, 5]
+            console.log(sequence.pop());
+            // → 5
+            console.log(sequence);
+            // → [1, 2, 3, 4]
+        </p>
+        <h3>Function Hoisting</h3>
+        <p>
+            Moving all variable and function declarations to the top of the current scope regardless of where they are defined. 
+            Functions defined by function declaration are automatically hoisted and can be invoked before they have been defined. 
+            Useful as it allows all function declarations to be placed together.
+        </p>
+        <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span class="GramE"><b><span style="font-family:Consolas">map(</span></b></span><b><span style="font-family:Consolas">) method</span></b><span style="font-family:Consolas">
+            returns a new array that replaces each value with the return value of the
+            callback function. <o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">&gt; [1,2,3<span class="GramE">].map</span>(square);<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">[ 1, 4, <span class="GramE">9 ]</span><o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">An anonymous function can also be used as a
+            callback.<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">&gt; [1,2,3<span class="GramE">].map</span>(x=&gt;x*x);<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">[ 1, 4, <span class="GramE">9 ]</span><o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><o:p>&nbsp;</o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">For this <span class="GramE">example</span> colors
+            was previously set up as an array<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">&gt; <span class="SpellE"><span class="GramE">colors.map</span></span><span class="GramE">( (</span>color, index) =&gt;<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">... `&lt;p&gt; ${<span class="SpellE"><span class="GramE">color.toUpperCase</span></span>()}&lt;/p&gt;`);<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">[<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><span style="mso-spacerun:yes">&nbsp; </span>'&lt;p&gt;
+            RED&lt;/p&gt;',<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><span style="mso-spacerun:yes">&nbsp; </span>'&lt;p&gt;
+            GREEN&lt;/p&gt;',<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><span style="mso-spacerun:yes">&nbsp; </span>'&lt;p&gt;
+            BLUE&lt;/p&gt;',<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><span style="mso-spacerun:yes">&nbsp; </span>'&lt;p&gt;
+            YELLOW&lt;/p&gt;',<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><span style="mso-spacerun:yes">&nbsp; </span>'&lt;p&gt;
+            PURPLE&lt;/p&gt;'<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas">]<o:p></o:p></span></p>
+            
+            <p class="MsoNormal" style="mso-layout-grid-align:none;text-autospace:none"><span style="font-family:Consolas"><o:p>&nbsp;</o:p></span></p>
+
+        </main>
+    <footer> &copy; 2022 | Eric Arthur | Portfolio </footer>
+</body>
+
+</html>

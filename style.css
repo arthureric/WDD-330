@@ -1,0 +1,40 @@
+  /* Remove the navbar's default margin-bottom and rounded borders */
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+body {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  h1 {
+    background-color: rgb(240, 68, 15);
+    padding: 1em;
+  }  
+
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: rgb(240, 68, 15);
+  padding: 25px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #d16565;
+  padding: 10px;
+}
+
+  .grid-container > div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+  }
+
+.item1 {
+  grid-row: 1 / 3;
+}
