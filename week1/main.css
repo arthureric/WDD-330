@@ -1,5 +1,5 @@
 body	{
-	background-color: #f5f7f4;
+	background-color: #E2D6CA;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -16,17 +16,17 @@ main {
 }
 
 header	{
-	color: #068a23;
+	color: #33180B;
 	font-size: 28px;
 }
 
 p	{
-	color: #17161a;
+	color: #33180B;
 	font-size: 16px;
 }
 
 p:nth-of-type(3)	{
-	border-left: 6px solid #df7868;
+	border-left: 6px solid #932D1D;
 	padding-left: 3%;
 }
 
@@ -39,7 +39,7 @@ nav ul li {
     border: 10px solid #649DA4;
     padding: 18px;
     margin: 10px;
-    background-color: #17db69;
+    background-color: #932D1D;
     transition: all 0.8s;
     font-size: 120%;
 }
