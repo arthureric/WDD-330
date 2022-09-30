@@ -1,28 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<!doctype html>
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object</title>
+<meta charset='utf-8'>
+<title>Events</title>
+<style>
+    p {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        background-color: #ccc;
+        float: left;
+    }
+    .highlight {
+        background-color: red;
+    }
+</style>
 </head>
-
 <body>
-    <script>
-        const superman = {
-            name: 'Superman',
-            'real name': 'Clark Kent',
-            height: 75,
-            weight: 235,
-            hero: true,
-            villain: false,
-            allies: ['Batman', 'Supergirl', 'Superboy'],
-            fly() {
-                return 'Up, up and away!';
-            }
-        };
-    </script>
-</body>
+<p id='click'>Click On Me</p>
+<p id='dblclick'>Double Click On Me</p>
+<p id='mouse'>Hover On Me</p>
+<p id='once'>A One Time Thing...</p>
+<p>
+    <a id='broken' href='https://sitepoint.com'>Broken Link</a>
+</p>
 
+<ul id='list'>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+</ul>
+
+<script src='mainEvents.js'></script>
+</body>
 </html>
