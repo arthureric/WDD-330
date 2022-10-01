@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/prism.css">
+  <link rel="stylesheet" href="main.css">
   <title>Notes Week 3</title>
 </head>
 
@@ -17,111 +16,30 @@
           <li><a href="../week1/index.html">Week 1</a></li>
           <li><a href="../Week2/index.html">Week 2</a></li>
       </ul>
+    <h2>Team Activity</h2>
+    <p><a href="./index-FINISH.html">Code</a></p>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="note.html">Notes</a></li>
+      <li><a href="object.html">Event</a></li>
+  </ul>
   </nav>
   </header>
   <main>
-       <h2>Reading</h2>
-    <ol>
-      <li><input checked="checked" type="checkbox"> Read the following art
-        with this article:&nbsp;<a href="https://javascript.info/object-methods">Object
-          Methods: this&nbsp;(Links to an external site.)</a>. If the concept
-        of&nbsp;<code>this</code>&nbsp;still is a bit unclear you can continue
-        articles as well:&nbsp;<a href="https://zellwk.com/blog/this/">This in
-          Javascript&nbsp;(Links to an external site.)</a>
-        <ol>
-          <li class="li-code">
-            <h3>Method example</h3>
-            <pre><code class="language-javascript line-numbers">
- let user = {
- // ...
- };
- // first, declare
- function sayHi() {
- alert("Hello!");
- }
- // then add as a method
- user.sayHi = sayHi;
- user.sayHi(); // Hello!
- </code></pre>
-          </li>
-          <li class="li-code">
-            <h3>Method shorthand</h3>
-            <pre><code class="language-javascript line-numbers">
- // these objects do the same
- user = {
- sayHi: function() {
- alert("Hello");
- }
- };
- // method shorthand looks better, right?
- user = {
- sayHi() { // same as "sayHi: function(){...}"
- alert("Hello");
- }
- };
- </code></pre>
-          </li>
-          <li class="li-code">
-            <h3>“this” in methods</h3>
-            <pre><code class="language-javascript line-numbers">
- let user = {
- name: "John",
- age: 30,
- sayHi() {
- alert( user.name ); // leads to an error
- }
- };
- let admin = user;
- user = null; // overwrite to make things obvious
- admin.sayHi(); // TypeError: Cannot read property 'name' of null
- </code></pre>
-          </li>
-        </ol>
-      </li>
-      <li><input checked="checked" type="checkbox"> Read all of&nbsp;<a
+       <h2>Week 3 Reading</h2>
+      <li> Read all of&nbsp;<a
           href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/5">Ch5:
           Objects&nbsp;(Links to an external site.)</a></li>
       <ol>
         <li>Object literals - objects created quickly without the need for defining a class
           <br><a href="object.html">object.html</a>
-          <pre><code class="language-javascript line-numbers">
-          const superman = {
-            name: 'Superman',
-            'real name': 'Clark Kent',
-            height: 75,
-            weight: 235,
-            hero: true,
-            villain: false,
-            allies: ['Batman','Supergirl','Superboy'],
-            fly() {
-                return 'Up, up and away!';
-            }
-        };
         </code></pre><br>
-          Is this going to work?
           <h3>Creating Objects</h3>
           <pre><code class="language-javascript line-numbers">
   const spiderman = {};
 </code></pre>
           <pre><code class="language-javascript line-numbers">
   const spiderman = new Object();
-</code></pre>
-          <h3>Accessing Properties</h3>
-          <pre><code class="language-javascript line-numbers">
-  superman.name
-  << 'Superman'
-</code></pre>
-          <pre><code class="language-javascript line-numbers">
-  superman['name']
-  << 'Superman'
-</code></pre>
-          <pre><code class="language-javascript line-numbers">
-  superman["real" + " " + "name"] // the property is built using string concatenation
-  << "Clark Kent"
-</code></pre>
-          <pre><code class="language-javascript line-numbers">
-  superman.city
-  << undefined
 </code></pre>
           <h3>Computed Properties</h3>
           <pre><code class="language-javascript line-numbers">
@@ -280,29 +198,6 @@ delete superman.fly
 superman // the Man of Steel has lost his ability to fly
 << {"allies": ['Batman', 'Supergirl', 'Superboy'], 'city': 'Superman', 'real name': 'Kal-El', 'villain': false, 'weight': 235}
 </code></pre>
-          <h3>Nested Objects</h3>
-          <pre><code class="language-javascript line-numbers">
-const jla = { // contains a list of other objects
-  superman: { realName: 'Clark Kent' },
-  batman: { realName: 'Bruce Wayne' },
-  wonderWoman: { realName: 'Diana Prince" },
-  flash: { realName: 'Barry Allen' },
-  aquaman: { realName: 'Arthur Curry' },
-}
-</code></pre>
-          <pre><code class="language-javascript line-numbers">
-jla.wonderWoman.realName  // accessed by referencing each property name in order using either dot or bracket notation:
-
-
-<< "Diana Prince"
-
-jla['flash']['realName']
-<< "Barry Allen"
-</code></pre>
-          <pre><code class="language-javascript line-numbers">
-jla.aquaman['realName'] // mix the different notations
-<< "Arthur Curry"
-</code></pre>
           <h3>Objects Are Copied By Reference</h3>
           <pre><code class="language-javascript line-numbers">
 const thor = { name: 'Thor' 
@@ -345,55 +240,11 @@ function greet({greeting='Hello',name,age=18}) {
   return `${greeting}! My name is ${name} and I am ${age} years old.`;
 }
 </code></pre>
-        </li>
-        <li>JSON</li>
-        <li>The Math object</li>
-        <li>The Date object</li>
-        <li>The RegExp object<br>
-        </li>
-      </ol>
-      <li><input checked="checked" type="checkbox"> Read all of&nbsp;<a
-          href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/6">Ch6:
-          Document Object Model&nbsp;(Links to an external site.)</a></li>
-      <li><input checked="checked" type="checkbox"> Read all of&nbsp;<a
-          href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/7">Ch7:
-          Events&nbsp;(Links to an external site.)</a></li>
-      <li>
-        <p><input checked="checked" type="checkbox"> If you are looking for
-          more code exercises to practice with check out&nbsp;<a href="http://eloquentjavascript.net/code">this
-            code sandbox&nbsp;(Links to an external site.)</a>. You should
-          look at the exercises from Ch14-15</p>
-      </li>
-      <ol>
-        <li>There are lots of great resources for finding JavaScript exercises
-          out there. A simple search would show resources such as:
-          <ul>
-            <li><a href="https://www.w3resource.com/javascript-exercises/"><input checked="checked" type="checkbox">
-                W3Resource&nbsp;(Links to
-                an external site.)</a></li>
-            <li><a href="https://github.com/workshopper/javascripting/tree/master/problems"><input checked="checked"
-                  type="checkbox">
-                NodeSchool-Github&nbsp;(Links to an external site.)</a></li>
-            <li><a href="https://www.jshero.net/en/success.html"><input checked="checked" type="checkbox"> JS
-                Hero&nbsp;(Links to an external site.)</a></li>
-            <li><a href="https://javascript30.com/"><input checked="checked" type="checkbox">
-                Javascript30&nbsp;(Links to an external site.)</a></li>
-          </ul>
-        </li>
-      </ol>
-    </ol>
-    <h2>Team Activity</h2>
-    <p><a href="./index-FINISH.html">Code</a></p>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="note.html">Notes</a></li>
-      <li><a href="object.html">Event</a></li>
-  </ul>
- 
 
   </main>
-  <footer></footer>
-  <script src="../js/prism.js"></script>
+  <footer>
+    &copy; 2022 | Eric Arthur | Portfolio
+  </footer>
 </body>
 
 </html>
