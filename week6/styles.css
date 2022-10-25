@@ -1,0 +1,103 @@
+body {
+    background-color: rgb(24, 238, 42);
+    max-width: 800px;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+  }
+  /* max-width class applies to several containers*/
+  .max-width {
+    max-width: 30em;
+  }
+  #taskContainer {
+    background-color: white;
+    margin: 1% 10%;
+    border: solid 1px black;
+    padding: 5%;
+    border-radius: 15px;
+  }
+
+  #taskList {
+    background-color: rgb(144, 255, 93);
+    list-style-type: none;
+    padding: 0.5em;
+  }
+  #taskList li {
+    display: grid;
+    grid-template-columns: 20fr 1fr;
+    background-color: rgb(243, 212, 134);
+    width: 100%;
+    font-size: 1.4em;
+    padding: 0.2em 0;
+    border: solid 1px rgb(108, 106, 106);
+  }
+  #taskList input {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  #taskList button {
+    background-color: rgb(232, 160, 160);
+    text-align: right;
+    height: 2em;
+  }
+  #filter {
+    display: table;
+    background-color: rgb(105, 232, 249);
+    margin: 0 auto;
+    width: 100%;
+  }
+  #filter ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  #filter li {
+    background-color: rgb(179, 247, 247);
+    max-width: 5em;
+    display: inline-flex;
+    line-height: 2em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0.5em 1em;
+    border: 2px solid black;
+  }
+  #numTasksLeft:hover {
+    background-color: rgb(37, 211, 211);
+  }
+  #all:hover,
+  #active:hover,
+  #completed:hover {
+    background-color: rgb(80, 95, 57);
+  }
+  #filter li.active {
+    background-color: rgb(201, 201, 67);
+    font-weight: 700;
+    font-size: 1.2em;
+    border: solid 2px black;
+  }
+  #newTaskContainer {
+    display: inline-flex;
+    background-color: rgb(67, 220, 20);
+    margin: 1% 10%;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  #newTaskInput {
+    width: 32em;
+    line-height: 2em;
+    border: solid 1px rgb(15, 14, 14);
+  }
+  #addNewTask {
+    width: 1.6rem;
+    height: 1.8rem;
+    font-size: 1.5em;
+    text-align: center;
+    border: solid 1px black;
+    box-shadow: 4px 2px 2px grey;
+  }
