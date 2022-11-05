@@ -1,22 +1,63 @@
-body {
-    background-color: gray;
-    font-family: monospace;
-    font-size: larger;
-}
-
-button {
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 10px 12px 0 black;
-}
-
-#buttons {
-    padding: 100px;
-}
-
-#output {
-    padding: 25px 0;
-    background-color: lightgray;
-    box-shadow: 0 10px 10px 0 black;
-    border-radius: 5px;
-}
+:root {
+    --swgrey: #e2b71a;
+    --swtan: #0a40d4;
+    --swblue: #f8f8f8;
+    --swmaroon: #381010;
+    --swgreen: #334e30;
+    font-family: "Roboto", sans-serif;
+  }
+  .hidden {
+    display: none;
+  }
+  body {
+    background-color: var(--swgrey);
+  }
+  main {
+    background-color: var(--swmaroon);
+    max-width: 600px;
+    margin: auto;
+  }
+  h1,
+  h2 {
+    background-color: var(--swgreen);
+    color: var(--swtan);
+    margin: 0;
+    border: solid 3px var(--swblue);
+    text-align: center;
+  }
+  p {
+    margin: 0.5em;
+    line-height: 1.5em;
+  }
+  a {
+    color: rgb(233, 27, 27);
+    font-size: 1.2em;
+  }
+  #buttons {
+    background-color: var(--swtan);
+    font-size: 1.2em;
+    text-align: center;
+    padding: 0.5em;
+  }
+  #buttons a {
+    text-decoration: none;
+    color: var(--swblue);
+    font-weight: 900;
+    padding: 1em;
+  }
+  #detailsContainer {
+    background-color: var(--swblue);
+    color: rgb(22, 22, 21);
+    padding: 0.5em;
+  }
+  dt {
+    float: left;
+    clear: left;
+    width: 110px;
+    font-weight: bold;
+    color: rgb(18, 107, 240);
+  }
+  dd {
+    margin: 0 0 0 80px;
+    padding: 0 0 0.5em 0;
+  }
