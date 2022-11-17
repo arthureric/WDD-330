@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+div {
+    background-color: rgba(233, 115, 115, 0.493);
+    width: 50%;
+    margin: auto;
+    border-radius: 5px;
+}
