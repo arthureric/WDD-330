@@ -1,5 +1,5 @@
 body {
-    background-color: #E6E1D3;
+    background-color: #ecb316;
     font-family: 'Mulish', sans-serif;
 }
 
@@ -23,7 +23,7 @@ h1 {
 /* ID Selectors */
 
 #output {
-    color: #617F3B;
+    color: #f50808;
     font-family: 'Mulish', sans-serif;
     font-size: 45px;
     font-weight: 900;
