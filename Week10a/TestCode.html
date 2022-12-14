@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Week 9 practice Code</title>
+  <!-- <link rel="stylesheet" href="PracticeStyle.css"> -->
+  <style>
+    body{
+        background-color: rgb(134, 185, 202);
+    }
+    #form{
+        width: 400px;
+        margin: 20vh auto 0 auto;
+        padding: 25px;
+        background-color: rgb(109, 64, 151);
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    #form h1{
+        color: rgb(26, 26, 94);
+        text-align: center;
+    }
+    #form button{
+        padding: 12px;
+        margin-top: 12px;
+        width: 100%;
+        color: blanchedalmond;
+        background-color: rgb(149, 196, 95);
+        border:none;
+        border-radius: 6px;
+    }
+    .input-control{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .input-control input{
+        border: 2px solid white;
+        border-radius: 6px;
+        display: block;
+        font-size: 14px;
+        padding: 12px;
+    }
+    .input-control input:focus{
+        outline: 0;
+    }
+    .input-control.success input{
+        border-color: rgb(134, 185, 202);
+    }
+    .input-control.error input{
+        border-color: rgb(173, 121, 121);
+    }
+    .input-control .error {
+        color: rgb(173, 121, 121);
+        font-size: 10px;
+        height: 15px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <form id="form" action="/">
+            <h1>Test for Client Side form validation</h1>
+            <div class="input_here">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input_here">
+                <label for="email">Email</label>
+                <input id="email" name="username" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input_here">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password">
+                <div class="error"></div>
+            </div>
+            <div class="input_here">
+                <label for="password">Password</label>
+                <input id="password2" name="password2" type="password">
+                <div class="error"></div>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+
+<script>
+    const form = document.getElementById("form");
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("password2");
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        vlidateInputs();
+    });
+
+    const validateInputs = () => {
+        const usernameValue = username.value.trim();
+        const emailValue = email.value.trim();
+        const passwordValue = password.value.trim();
+        const password2Value = password2.value.trim();
+
+        if(usernameValue === ''){
+            setError(username, 'Username is required')
+        }else{
+            setSuccess(username);
+        }
+
+        if(emailValue === ''){
+            setError(email, "Email is required");
+        }else if(!isValidEmail(emailValue)){
+            setSuccess(email);
+        }else{
+            setSuccess(email);
+        }
+
+        if(passwordValue === ''){
+            setError(password, "Password is required");
+        }else if (passwordValue.length < 11){
+            setError(password, 'Password must be at least 11 characters.')
+        }else{
+            setSuccess(password);
+        }
+
+        if(password2Value === ''){
+            setError(password2, "Password is required");
+        }else if (password2Value !== passwordValue){
+            setError(password2, 'Passwords do not match.');
+        }else{
+            setSuccess(password2);
+        }
+    }
+
+    const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querSelector('.error');
+
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success')
+    }
+    const setSuccess = element => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querSelector('.error');
+
+        errorDisplay.innerText = '';
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
+    }
+    const isValidEmail = email => {
+        const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        return emailRegExp.test(String(email).toLowerCase());
+    }
+
+
+
+//fetch API
+const baseURL = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-01-01&endtime=2019-02-02";
+
+fetch(baseURL).then((response) => {
+    console.log('resolved', response);
+    return response.json(); //gets data and parses it, can be rejected or resolved
+}).then(data => {
+    console.log(data); //data to console log
+}).catch((err) => {
+    console.log('rejected', err);
+});
+
+
+
+
+</script>
+
+
+</body>
+</html>

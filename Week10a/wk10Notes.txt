@@ -1,0 +1,110 @@
+Why client-side validation?
+ -we want to get the right data, and in the right format
+ -we want to protect our users' data
+ -we want to protect ourselves
+
+can use built in form validation with:
+required
+minlength, maxlength
+min, max
+type
+pattern
+
+inline:
+    required
+    minlength="6"
+    maxlength="6"
+
+if correct or not:
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
+how to validate against a regular expression use these:
+a — Matches one character that is a (not b, not aa, and so on).
+abc — exact match 
+ab?c — Matches a, followed by b or c. (ac or abc)
+ab*c — Matches a, optionally followed by any number of bs, followed by c. (ac, abc, abbbbbc, and so on).
+a|b — Matches one character that is a or b.
+abc|xyz — Matches exactly abc or exactly xyz (but not abcxyz or a or y, and so on)
+
+using the constraint validation API properties:
+validateMessage
+validity
+patternMismatch
+tooLong
+tooShort
+rangeOverflow
+rangeUnderflow
+typeMismatch
+valid
+valueMissing
+willValidate
+
+
+using the constraint validation API methods:
+checkValidity()
+reportValidity()
+setCustomValidity(message)
+
+ALWAYS check fields are not blank
+ALWAYS check data for errors
+
+
+
+Fetch API:
+with data received open inspect 
+open prototype drop down
+find drop down -- json:
+this is the data you can grab
+
+
+fetch, return response
+alway use catch incase of error
+
+you can also upload data and a file
+
+processing line by line:
+async function* makeTextFileLineIterator(fileURL) {
+  const utf8Decoder = new TextDecoder('utf-8');
+  const response = await fetch(fileURL);
+  const reader = response.body.getReader();
+  let { value: chunk, done: readerDone } = await reader.read();
+  chunk = chunk ? utf8Decoder.decode(chunk) : '';
+
+  const re = /\n|\r|\r\n/gm;
+  let startIndex = 0;
+  let result;
+
+  while (true) {
+    let result = re.exec(chunk);
+    if (!result) {
+      if (readerDone) break;
+      let remainder = chunk.substr(startIndex);
+      ({ value: chunk, done: readerDone } = await reader.read());
+      chunk = remainder + (chunk ? utf8Decoder.decode(chunk) : '');
+      startIndex = re.lastIndex = 0;
+      continue;
+    }
+    yield chunk.substring(startIndex, result.index);
+    startIndex = re.lastIndex;
+  }
+
+  if (startIndex < chunk.length) {
+    // Last line didn't end in a newline char
+    yield chunk.substr(startIndex);
+  }
+}
+
+async function run() {
+  for await (const line of makeTextFileLineIterator(urlOfFile)) {
+    processLine(line);
+  }
+}
+
+run();
+
